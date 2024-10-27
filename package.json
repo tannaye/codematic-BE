@@ -1,0 +1,52 @@
+{
+    "name": "js-clean-arch",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prettier": "npx prettier --write .",
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rajman01/node-js-clean-arch.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/rajman01/node-js-clean-arch/issues"
+    },
+    "homepage": "https://github.com/rajman01/node-js-clean-arch#readme",
+    "dependencies": {
+        "axios": "^1.7.7",
+        "bcryptjs": "^2.4.3",
+        "cors": "^2.8.5",
+        "crypto": "^1.0.1",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "express-rate-limit": "^7.1.5",
+        "http-status": "^1.7.3",
+        "jsonwebtoken": "^9.0.2",
+        "moment": "^2.29.4",
+        "mongoose": "^8.0.1",
+        "mongoose-aggregate-paginate-v2": "^1.0.6",
+        "mongoose-paginate-v2": "^1.7.4",
+        "nanoid": "^5.0.3",
+        "phone": "^3.1.41",
+        "rand-token": "^1.0.1",
+        "redis": "^4.6.11",
+        "validatorjs": "^3.22.1",
+        "winston": "^3.11.0"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "prettier": "^2.1.2",
+        "prettier-eslint": "^13.0.0"
+    }
+}
