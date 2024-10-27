@@ -10,7 +10,7 @@ export default class VideoUseCase {
     async getVideo(videoId) {
         this.videoValidator.validateGetDetails({ videoId });
 
-        const url = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet,statistics&key=${process.env.YOUTUBE_API_KEY}`;
+        const url = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet,statistics&key=${process.env.YOUTUBE_API_KEY}&maxResults=15`;
 
         const response = await axios.get(url);
         if (!response) {
