@@ -22,25 +22,20 @@ export default class VideoUseCase {
             description: videoData.snippet.description,
             viewCount: videoData.statistics.viewCount,
             likeCount: videoData.statistics.likeCount,
+            commentCount: videoData.statistics.commentCount,
         };
     }
 
     async getComments(query) {
-        console.log("here");
         let { videoId, nextPageToken } = query;
         const url = `https://www.googleapis.com/youtube/v3/commentThreads?videoId=${videoId}&part=snippet&key=${process.env.YOUTUBE_API_KEY}&maxResults=100`;
-
-        console.log(videoId, nextPageToken);
 
         let comments = [];
         nextPageToken = nextPageToken || "";
 
-        // do {
         const response = await axios.get(url + (nextPageToken ? `&pageToken=${nextPageToken}` : ""));
         const data = response.data;
         nextPageToken = data.nextPageToken || null;
-
-        console.log(data);
 
         const newComments = data.items.map(item => ({
             author: item.snippet.topLevelComment.snippet.authorDisplayName,
@@ -48,7 +43,6 @@ export default class VideoUseCase {
         }));
 
         comments = [...comments, ...newComments];
-        // } while (nextPageToken);
 
         return {
             comments,
