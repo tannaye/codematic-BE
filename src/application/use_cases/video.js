@@ -8,6 +8,8 @@ export default class VideoUseCase {
     }
 
     async getVideo(videoId) {
+        this.videoValidator.validateGetDetails({ videoId });
+
         const url = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet,statistics&key=${process.env.YOUTUBE_API_KEY}`;
 
         const response = await axios.get(url);
@@ -28,6 +30,9 @@ export default class VideoUseCase {
 
     async getComments(query) {
         let { videoId, nextPageToken } = query;
+
+        this.videoValidator.validateGetComments({ videoId, nextPageToken });
+
         const url = `https://www.googleapis.com/youtube/v3/commentThreads?videoId=${videoId}&part=snippet&key=${process.env.YOUTUBE_API_KEY}&maxResults=100`;
 
         let comments = [];
