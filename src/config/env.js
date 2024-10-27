@@ -8,12 +8,8 @@ if (env.error && !process.env.NODE_ENV.toLowerCase().includes("prod")) {
     dotenv.config({ path: `./.env.${process.env.NODE_ENV.toLowerCase()}` });
 }
 
-export const parsePemKey = key => {
-    return key.split("\\n").join("\n");
-};
-
 export const port = parseInt(process.env.PORT, 10) || 3000;
-export const jwtSecret = parsePemKey(process.env.JWT_SECRET);
+export const jwtSecret = process.env.JWT_SECRET;
 export const mongodbURI = process.env.MONGO_URI;
 export const redisURI = process.env.REDIS_URI;
 export const allowedOrigins = process.env.ALLOWED_ORIGINS.split(",");
